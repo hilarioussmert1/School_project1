@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HockeyHub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .navbar {
+      background-color: #022b6d;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .web-name a {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    .gray-box {
+      display: flex;
+      justify-content: space-between;
+      background-color: #1A1A1A;
+      color: white;
+      padding: 15px 20px;
+      font-size: 18px;
+    }
+
+    .white-text a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .white-text a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons {
+      background-color: #04367a;
+      padding: 10px;
+    }
+
+    .social-icons img {
+      height: 25px;
+      margin-right: 10px;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px auto;
+      max-width: 600px;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #022b6d;
+      margin-bottom: 30px;
+    }
+
+    .dropdown-button {
+      background-color: #1c3d7d;
+      color: white;
+      padding: 14px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-button:hover {
+      background-color: #004aad;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      width: 100%;
+      left: 0;
+      top: 110%;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 500;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="boston.png" alt="BOS">
+      <img src="caps.png" alt="CAPS">
+      <img src="panthers.png" alt="FLA">
+    </div>
+    <div class="web-name">
+      <a href="/">HockeyHub</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="gray-box white-text">
+      <div class="nav-left">
+        <a href="/leagues/">Leagues</a>
+        <a href="/clubs/">Clubs</a>
+        <a href="/news/">News</a>
+        <a href="#">Games</a>
+        <a href="#">Schedule</a>
+        <a href="#">Video</a>
+        <a href="/statistic/">Statistics</a>
+      </div>
+      <div class="auth nav-right">
+        <a href="#">Sign in</a>
+        <a href="#">Registration</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <img src="fb.png" alt="FB">
+    <img src="ig.png" alt="IG">
+    <img src="yt.png" alt="YT">
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>Choose a Club</h2>
+
+    <div class="dropdown">
+      <button onclick="toggleDropdown()" class="dropdown-button">Select Club</button>
+      <div id="dropdown-menu" class="dropdown-menu">
+        <a href="{% url 'club_detail' slug='blackhawks' %}">Blackhawks</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById("dropdown-menu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown-button')) {
+        const dropdowns = document.getElementsByClassName("dropdown-menu");
+        for (let i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

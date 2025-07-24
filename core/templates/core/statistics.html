@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Team Statistics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .navbar {
+      background-color: #022b6d;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+      margin: 0 10px;
+    }
+
+    .web-name a {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    .gray-box {
+      display: flex;
+      justify-content: space-between;
+      background-color: #1A1A1A;
+      color: white;
+      padding: 15px 20px;
+      font-size: 18px;
+    }
+
+    .white-text a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .white-text a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .social-icons {
+      background-color: #04367a;
+      padding: 10px;
+    }
+
+    .social-icons img {
+      height: 25px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #022b6d;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #022b6d;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .back-button {
+      margin: 20px 0;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #003366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+        .filter-form {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .filter-form input[type="text"] {
+      padding: 10px 15px;
+      border: 2px solid #022b6d;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .filter-form input[type="text"]:focus {
+      box-shadow: 0 0 5px #022b6d;
+      border-color: #022b6d;
+    }
+
+    .filter-form button {
+      background-color: #022b6d;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .filter-form button:hover {
+      background-color: #00449c;
+    }
+    .red-text{
+      color:#1A1A1A;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="/static/images/boston.png" alt="BOS">
+      <img src="/static/images/caps.png" alt="CAPS">
+      <img src="/static/images/panthers.png" alt="FLA">
+    </div>
+    <div class="web-name">
+      <a href="/">HockeyHub</a>
+    </div>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav>
+    <div class="gray-box white-text">
+      <div class="nav-left">
+        <a href="/leagues/">Leagues</a>
+        <a href="/clubs/">Clubs</a>
+        <a href="/news/">News</a>
+        <a href="#">Games</a>
+        <a href="#">Schedule</a>
+        <a href="#">Video</a>
+        <a href="#">Statistics</a>
+      </div>
+      <div class="auth nav-right">
+        <a href="#">Sign in</a>
+        <a href="#">Registration</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <img src="/static/images/fb.png" alt="FB">
+    <img src="/static/images/ig.png" alt="IG">
+    <img src="/static/images/yt.png" alt="YT">
+  </div>
+
+  <!-- Team Statistics Table -->
+  <div class="container">
+    <h1 class="red-text">Team Statistics</h1>
+    <form method="get" class="filter-form">
+      <input type="text" name="search" placeholder="Search by team name..." value="{{ request.GET.search }}">
+      <button type="submit">Filter</button>
+      <button type="submit" name="sort" value="desc" style="margin-left: 20px;">Sort by Points ↓</button>
+      <button type="submit" name="sort" value="asc">Sort by Points ↑</button>
+    </form>
+        <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Team</th>
+          <th>Games</th>
+          <th>Wins</th>
+          <th>Draws</th>
+          <th>Losses</th>
+          <th>Goals Scored</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for team in teams %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ team.team }}</td>
+          <td>{{ team.gamesPlayed }}</td>
+          <td>{{ team.wins }}</td>
+          <td>{{ team.draws }}</td>
+          <td>{{ team.losses }}</td>
+          <td>{{ team.goals }}</td>
+          <td>{{ team.wins|add:team.wins|add:team.draws }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

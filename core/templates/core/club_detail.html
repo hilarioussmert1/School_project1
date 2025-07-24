@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ club.name }}</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #002b5c;
+      padding: 15px 30px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .club-container {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 30px;
+      width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .back-button {
+      background-color: #444;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .back-button:hover {
+      background-color: #666;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #8B0000; /* Dark red */
+      margin-bottom: 20px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 16px;
+      color: #ddd;
+    }
+
+    .club-meta {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .club-meta span {
+      display: inline-block;
+      margin-right: 30px;
+    }
+
+    .club-logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      background-color: #fff;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">{{ club.name }}</div>
+
+  <div class="content-wrapper">
+    <div class="club-container">
+      <a href="{% url 'clubs_dropdown' %}" class="back-button">← Back to Clubs</a>
+
+      {% if club.logo %}
+        <img src="{{ club.logo.url }}" alt="{{ club.name }} Logo" class="club-logo">
+      {% endif %}
+
+      <h1>About the Club</h1>
+
+      <p>{{ club.description|linebreaks }}</p>
+
+      <div class="club-meta">
+        {% if club.city %}
+          <span><strong>City:</strong> {{ club.city }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

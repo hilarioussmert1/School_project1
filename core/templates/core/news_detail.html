@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ news.title }}</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #002b64;
+      padding: 15px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #1c1c1c;
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      background-color: #444;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .news-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #c40000;
+      margin-bottom: 10px;
+    }
+
+    .news-date {
+      font-size: 14px;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+
+    .news-body {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    {{ news.title }}
+  </div>
+
+  <div class="container">
+    <a class="back-button" href="{% url 'news_list' %}">← Back to News</a>
+
+    <div class="news-title">{{ news.title }}</div>
+    <div class="news-date">{{ news.date|date:"F d, Y" }}</div>
+    <div class="news-body">{{ news.info|linebreaks }}</div>
+  </div>
+
+</body>
+</html>

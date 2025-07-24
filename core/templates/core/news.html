@@ -1,0 +1,389 @@
+<!--</html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8" />-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+<!--  <title>HockeyHub</title>-->
+<!--  <style>-->
+<!--    .gray-box {-->
+<!--      display: flex;-->
+<!--      justify-content: space-between;-->
+<!--      background-color: #1A1A1A; /* светло-серый */-->
+<!--      color: white; /* цвет текста — чёрный */-->
+<!--      padding: 15px 20px;-->
+<!--      font-size: 18px;-->
+<!--      text-align: left;-->
+<!--      gap: 20px;-->
+<!--    }-->
+<!--    .white-text a{-->
+<!--      color: white;-->
+<!--      text-decoration:none;-->
+<!--    }-->
+<!--    .white-text a:hover {-->
+<!--    text-decoration: underline;-->
+<!--    }-->
+<!--    .nav-left,-->
+<!--    .nav-right {-->
+<!--    display: flex;-->
+<!--    flex-wrap: wrap;-->
+<!--    gap: 20px;-->
+<!--    }-->
+
+<!--    body {-->
+<!--      margin: 0;-->
+<!--      font-family: Arial, sans-serif;-->
+<!--      background-color: #f2f2f2;-->
+<!--    }-->
+<!--    .navbar {-->
+<!--      background-color: #022b6d;-->
+<!--      color: white;-->
+<!--      display: flex;-->
+<!--      justify-content: space-between;-->
+<!--      align-items: center;-->
+<!--      padding: 10px 20px;-->
+<!--    }-->
+<!--    .navbar .logo {-->
+<!--      display: flex;-->
+<!--      align-items: left;-->
+<!--    }-->
+<!--    .navbar .web-name{-->
+<!--      display: flex;-->
+<!--      align-item: right;-->
+<!--    }-->
+<!--    .navbar img {-->
+<!--      height: 40px;-->
+<!--      margin: 0 10px;-->
+<!--    }-->
+<!--    .navbar nav a {-->
+<!--      color: white;-->
+<!--      margin: 0 15px;-->
+<!--      text-decoration: none;-->
+<!--    }-->
+<!--    .navbar .auth {-->
+<!--      margin-left: auto;-->
+<!--    }-->
+<!--    .social-icons {-->
+<!--      background-color: #04367a;-->
+<!--      padding: 10px;-->
+<!--      text-align: left;-->
+<!--    }-->
+<!--    .social-icons img {-->
+<!--      height: 25px;-->
+<!--      margin-right: 10px;-->
+<!--    }-->
+<!--    .content {-->
+<!--      display: flex;-->
+<!--      padding: 20px;-->
+<!--    }-->
+<!--    .main, .sidebar {-->
+<!--      background-color: #1c1c1c;-->
+<!--      color: white;-->
+<!--      padding: 20px;-->
+<!--      border-radius: 10px;-->
+<!--    }-->
+<!--    .main {-->
+<!--      flex: 2;-->
+<!--      margin-right: 20px;-->
+<!--    }-->
+<!--    .sidebar {-->
+<!--      flex: 1;-->
+<!--      overflow-y: auto;-->
+<!--      max-height: 600px;-->
+<!--    }-->
+<!--    .match-of-day, .highlights, .news {-->
+<!--      margin-bottom: 20px;-->
+<!--    }-->
+<!--    .match-of-day img {-->
+<!--      height: 80px;-->
+<!--    }-->
+<!--    .view-btn {-->
+<!--      background-color: #a73434;-->
+<!--      color: white;-->
+<!--      padding: 10px 15px;-->
+<!--      border: none;-->
+<!--      border-radius: 5px;-->
+<!--      cursor: pointer;-->
+<!--      margin-top: 10px;-->
+<!--    }-->
+<!--    .schedule-card {-->
+<!--      background-color: #3797f0;-->
+<!--      color: white;-->
+<!--      padding: 15px;-->
+<!--      margin-bottom: 10px;-->
+<!--      border-radius: 8px;-->
+<!--      position: relative;-->
+<!--    }-->
+<!--    .schedule-card::after {-->
+<!--      content: "SENIOR";-->
+<!--      position: absolute;-->
+<!--      right: 10px;-->
+<!--      top: 10px;-->
+<!--      font-size: 12px;-->
+<!--      background-color: #000;-->
+<!--      padding: 3px 6px;-->
+<!--      border-radius: 5px;-->
+<!--    }-->
+
+<!--    .dropdown {-->
+<!--      position: relative;-->
+<!--      display: inline-block;-->
+
+<!--    }-->
+
+<!--     .dropdown  button{-->
+<!--      background-color: #04367a;-->
+<!--      color: #f1f1f1;-->
+<!--      cursor: pointer;-->
+<!--      min-width: 300px;-->
+<!--      padding: 16px 32px;-->
+<!--      font-size:20px;-->
+<!--    }-->
+<!--    .dropdown  button:hover {-->
+<!--      background-color: #2196f3;-->
+
+<!--    }-->
+
+<!--    .dropdown-content {-->
+<!--      display: none; /* скрыт по умолчанию */-->
+<!--      position: absolute;-->
+<!--      background-color: #ffffff;-->
+<!--      color:white;-->
+<!--      align: center;-->
+<!--      min-width: 250px;-->
+<!--      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);-->
+<!--      padding: 10px;-->
+<!--      z-index: 1;-->
+<!--    }-->
+
+<!--    .dropdown-content a {-->
+<!--      color: black;-->
+<!--      padding: 5px 10px;-->
+<!--      text-decoration: none;-->
+<!--      display: block;-->
+<!--    }-->
+
+<!--    .dropdown-content a:hover {-->
+<!--      background-color: #04367a;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <div class="navbar">-->
+<!--  <div class="logo">-->
+<!--    <img src="boston.png" alt="BOS">-->
+<!--    <img src="caps.png" alt="CAPS">-->
+<!--    <img src="panthers.png" alt="FLA">-->
+<!--  </div>-->
+<!--    <div class="white-text web-name">-->
+<!--      <a href="/" >HockeyHub</a>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--<nav>-->
+<!--  <div class="gray-box white-text">-->
+<!--    <div class="nav-left">-->
+<!--    <a href="/leagues/">Leagues</a>-->
+<!--    <a href="/clubs/">Clubs</a>-->
+<!--    <a href="/news/">News</a>-->
+<!--    <a href="#">Games</a>-->
+<!--    <a href="#">Schedule</a>-->
+<!--    <a href="#">Video</a>-->
+<!--    <a href="#">Statistics</a>-->
+<!--    </div>-->
+<!--    <div class="auth nav-right" >-->
+<!--      <a href="#">Sign in</a>-->
+<!--      <a href="#">Registration</a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<!--  <div class="social-icons">-->
+<!--    <img src="fb.png" alt="FB">-->
+<!--    <img src="ig.png" alt="IG">-->
+<!--    <img src="yt.png" alt="YT">-->
+<!--  </div>-->
+
+<!--  <div class="dropdown">-->
+<!--    <button onclick="toggleDropdown()">Division A</button>-->
+
+<!--    <div id="dropdown-menu" class="dropdown-content">-->
+<!--      {% for team in teams %}-->
+<!--        <a href="/clubs/">{{ team.name }}</a>-->
+<!--      {% endfor %}-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <script>-->
+<!--    function toggleDropdown() {-->
+<!--      const menu = document.getElementById("dropdown-menu"); /*сохраняет выбранный элемент в переменную "menu" */-->
+<!--      menu.style.display = (menu.style.display === "block") ? "none" : "block"; /* "menu.style.display" - определяет,показывается элемент или он скрыт| none - это короткий способ написать валидацию if..else*/-->
+<!--    }-->
+<!--  </script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HockeyHub - News</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .navbar {
+      background-color: #022b6d;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+      margin: 0 10px;
+    }
+
+    .web-name a {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    .gray-box {
+      display: flex;
+      justify-content: space-between;
+      background-color: #1A1A1A;
+      color: white;
+      padding: 15px 20px;
+      font-size: 18px;
+    }
+
+    .white-text a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .white-text a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .social-icons {
+      background-color: #04367a;
+      padding: 10px;
+    }
+
+    .social-icons img {
+      height: 25px;
+      margin-right: 10px;
+    }
+
+    .news-container {
+      padding: 30px 40px;
+    }
+
+    .news-item {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid #022b6d;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #022b6d;
+      margin-bottom: 10px;
+    }
+
+    .news-date {
+      font-size: 14px;
+      color: gray;
+      margin-bottom: 10px;
+    }
+
+    .news-body {
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="/static/images/boston.png" alt="BOS">
+      <img src="/static/images/caps.png" alt="CAPS">
+      <img src="/static/images/panthers.png" alt="FLA">
+    </div>
+    <div class="web-name">
+      <a href="/">HockeyHub</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="gray-box white-text">
+      <div class="nav-left">
+        <a href="/leagues/">Leagues</a>
+        <a href="/clubs/">Clubs</a>
+        <a href="/news/">News</a>
+        <a href="#">Games</a>
+        <a href="#">Schedule</a>
+        <a href="#">Video</a>
+        <a href="/statistic/">Statistics</a>
+      </div>
+      <div class="auth nav-right">
+        <a href="#">Sign in</a>
+        <a href="#">Registration</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <img src="/static/images/fb.png" alt="FB">
+    <img src="/static/images/ig.png" alt="IG">
+    <img src="/static/images/yt.png" alt="YT">
+  </div>
+
+  <!-- News Content -->
+  <div class="news-container">
+    {% for item in news %}
+      <div class="news-item">
+        <div class="news-title">
+          <a href="{% url 'news_detail' news_id=item.id %}">
+            {{ item.title }}
+          </a>
+        </div>
+        <div class="news-date">
+          {{ item.date|date:"F d, Y" }}
+        </div>
+        <div class="news-body">
+          {{ item.body|truncatechars:150 }} <!-- Можно обрезать текст -->
+        </div>
+      </div>
+    {% empty %}
+      <p>No news available at the moment.</p>
+    {% endfor %}
+  </div>
+
+</body>
+</html>
