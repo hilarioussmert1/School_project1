@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Team, Club, News, Statistic
 from .utils import binary_search_by_team_name, quick_sort_teams
 
@@ -66,12 +66,16 @@ def statistics(request):
         'search_query': search_query,
         'sort_order': sort_order,
     })
-# def games(request):
-#     return render(request, 'core/games.html')
+
+
+# class SignUpView(CreateView):
+#     form_class = SignUpForm
+#     success_url = reverse_lazy('login')   # после успешной регистрации отправим на логин
+#     template_name = 'registration/register.html'
 #
-# def video(request):
-#     return render(request, 'core/video.html')
+# class UserLoginView(LoginView):
+#     template_name = 'registration/login.html'
+#     redirect_authenticated_user = True
 #
-# def schedule(request):
-#     return render(request, 'core/schedule.html')
-#
+#     def get_success_url(self):
+#         return reverse_lazy('home')

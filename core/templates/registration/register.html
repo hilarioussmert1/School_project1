@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    body { background: #222; color: white; font-family: sans-serif; }
+    .form-container {
+      width: 500px;
+      margin: 100px auto;
+      background: #111;
+      padding: 30px 40px;
+      border-radius: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #222;
+      color: white;
+      border: 1px solid #555;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    a { color: #0af; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Create an Account</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+  </div>
+</body>
+</html>

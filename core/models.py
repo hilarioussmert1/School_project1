@@ -2,6 +2,18 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+from django.contrib.auth.models import AbstractUser
+
+
+# class CustomUser(AbstractUser):
+#     ROLE_CHOICES = [
+#         ('admin', 'Admin'),
+#         ('coach', 'Coach'),
+#         ('player', 'Player'),
+#         ('referee', 'Referee'),
+#         ('owner', 'Owner'),
+#     ]
+#     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='player')
 
 
 # Model representing a division (group) of teams
